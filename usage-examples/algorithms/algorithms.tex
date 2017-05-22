@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage{algorithm}          % to wrap code in an algorithm environment
+\usepackage{algpseudocode}      % to use algorithmic env. to write pseudocode
+% \usepackage{algorithmicx}       % provides constructs for algorithm designs
+
+\begin{document}
+
+\algsetblock[loop]{Loop}{EndLoop}{}{1cm}
+
+\begin{algorithm}
+    \caption{Main test control.}
+    \label{alg:test-algorithm-one}
+    \begin{algorithmic}[1]
+        \Procedure{main}{$void$}\Comment{entry point}
+            \State{Initialize platform}
+            \State{Initialize GPIO}
+            \State{Initialize timer}
+            \Loop
+                \Repeat
+                    \State{Read switch inputs}
+                \Until{Switches are off}
+                \State{Clear LEDs}
+                \Repeat
+                    \State{Read switch inputs}
+                \Until{Switches change}
+                \State{Run test}
+                \State{Set LEDs to signal finished test}
+            \EndLoop
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+
+Algorithm \ref{alg:test-algorithm-one}.\par
+Line \ref{lineref} from Algorithm \ref{alg:test-algorithm-two}.\par
+Line \algref{alg:test-algorithm-two}{lineref}\par
+
+\begin{algorithm}
+    \caption{Test algorithm.}
+    \label{alg:test-algorithm-two}
+    \begin{algorithmic}[1]
+        \Procedure{apc\_test}{}
+                \State{Initialize data structure}
+                \State{Start timer}
+                \For{k $\gets$ 0, K\_MAX}
+                    \State{Save iteration start time}\label{lineref}
+                    \State{Run iteration}
+                    \State{Save iteration finish time}
+                    \State{Save data packet}
+                \EndFor
+                \State{Output data collected}
+                \State{Delete data packets}
+                \State{Delete instance}
+        \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+
+\end{document}
