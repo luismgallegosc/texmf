@@ -1,3 +1,6 @@
+## tlpkg directory files
+*.tlpdb
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
